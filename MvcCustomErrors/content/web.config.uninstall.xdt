@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright (c) 2016 Mehmet Antoine Ergut
+Licensed under the MIT License (MIT). See LICENSE in the project root for license information.
+-->
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <system.web>
+    <customErrors xdt:Transform="RemoveAttributes(mode,defaultRedirect,redirectMode,allowNestedErrors)" />
+  </system.web>
+  <system.webServer>
+    <httpErrors xdt:Transform="RemoveAttributes(errorMode,existingResponse)">
+      <remove xdt:Transform="Remove"
+              xdt:Locator="Match(statusCode)"
+              statusCode="404" />
+      <error xdt:Transform="Remove"
+             xdt:Locator="Match(statusCode,path,responseMode)"
+             statusCode="404" path="/Error/NotFound" responseMode="ExecuteURL" />
+      <remove xdt:Transform="Remove"
+              xdt:Locator="Match(statusCode)"
+              statusCode="500" />
+      <error xdt:Transform="Remove"
+             xdt:Locator="Match(statusCode,path,responseMode)"
+             statusCode="500" path="/Error/InternalServerError" responseMode="ExecuteURL" />
+    </httpErrors>
+  </system.webServer>
+</configuration>

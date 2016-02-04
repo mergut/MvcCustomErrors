@@ -1,0 +1,3 @@
+# Disable end-of-line normalization on all files
+#  equivalent to autocrlf = false
+* -text

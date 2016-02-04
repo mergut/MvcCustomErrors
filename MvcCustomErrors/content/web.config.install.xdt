@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright (c) 2016 Mehmet Antoine Ergut
+Licensed under the MIT License (MIT). See LICENSE in the project root for license information.
+-->
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <system.web xdt:Transform="InsertIfMissing">
+    <customErrors xdt:Transform="InsertIfMissing" />
+    <customErrors xdt:Transform="SetAttributes(mode,defaultRedirect,redirectMode,allowNestedErrors)"
+                  mode="On" defaultRedirect="Error.aspx" redirectMode="ResponseRewrite" allowNestedErrors="false" />
+    <customErrors>
+      <error xdt:Transform="RemoveAll" />
+    </customErrors>
+  </system.web>
+  <system.webServer xdt:Transform="InsertIfMissing">
+    <httpErrors xdt:Transform="InsertIfMissing" errorMode="Custom" existingResponse="Replace">
+      <remove xdt:Transform="InsertIfMissing"
+              xdt:Locator="Match(statusCode)"
+              statusCode="404" />
+      <error xdt:Transform="Replace"
+             xdt:Locator="Match(statusCode)"
+             statusCode="404" path="/Error/NotFound" responseMode="ExecuteURL" />
+      <remove xdt:Transform="InsertIfMissing"
+              xdt:Locator="Match(statusCode)"
+              statusCode="500" />
+      <error xdt:Transform="Replace"
+             xdt:Locator="Match(statusCode)"
+             statusCode="500" path="/Error/InternalServerError" responseMode="ExecuteURL" />
+    </httpErrors>
+  </system.webServer>
+</configuration>
