@@ -14,7 +14,7 @@ cache:
 
 before_build:
   - nuget restore
-  - ps: ".\GitVersion.CommandLine.3.4.1\tools\GitVersion.exe" /l console /output buildserver /updateAssemblyInfo MvcCustomErrors\Properties\AssemblyInfo.cs
+  - ps: '.\GitVersion.CommandLine.3.4.1\tools\GitVersion.exe' /l console /output buildserver /updateAssemblyInfo MvcCustomErrors\Properties\AssemblyInfo.cs
   - ps: $env:Build_IsPreRelease=(-not [String]::IsNullOrEmpty($env:GitVersion_PreReleaseTag)).ToString().ToLower()
 
 configuration: Release
