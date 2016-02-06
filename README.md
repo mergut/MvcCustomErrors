@@ -1,5 +1,10 @@
 # MvcCustomErrors
 
+[![NuGet Version](https://img.shields.io/nuget/v/MvcCustomErrors.svg)](https://www.nuget.org/packages/MvcCustomErrors)
+[![NuGet Downloads](https://img.shields.io/nuget/dt/MvcCustomErrors.svg)](https://www.nuget.org/packages/MvcCustomErrors)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/mergut/MvcCustomErrors/master/LICENSE)
+[![Build status](https://ci.appveyor.com/api/projects/status/0n4p2yapfmd7saf9/branch/master?svg=true)](https://ci.appveyor.com/project/mergut/mvccustomerrors/branch/master)
+
 Display custom error pages using MVC views.
 
 MvcCustomErrors unifies error page handling and centralizes the status code to displayed page mapping inside the IIS `<httpErrors>` section.
