@@ -6,10 +6,12 @@ MvcCustomErrors unifies error page handling and centralizes the status code to d
 
 
 ## Installation
-WIP
+MvcCustomErrors is available as a NuGet package. You can install it using the NuGet Package Manager Console window:
+```
+PM> Install-Package MvcCustomErrors
+```
 
-
-## Usage
+## Customization
 
 This package provides views for InternalServerError (500) and NotFound (404) status codes.
 
