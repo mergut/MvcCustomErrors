@@ -1,0 +1,56 @@
+# AppVeyor configuration
+
+version: "{build}"
+
+os: Visual Studio 2015
+
+environment:
+
+assembly_info:
+  patch: false
+
+cache:
+  - packages -> **\packages.config
+
+before_build:
+  - nuget restore
+  - ps: ".\GitVersion.CommandLine.3.4.1\tools\GitVersion.exe" /l console /output buildserver /updateAssemblyInfo MvcCustomErrors\Properties\AssemblyInfo.cs
+  - ps: $env:Build_IsPreRelease=(-not [String]::IsNullOrEmpty($env:GitVersion_PreReleaseTag)).ToString().ToLower()
+
+configuration: Release
+
+build:
+  project: MvcCustomErrors.sln
+  publish_nuget: false
+  verbosity: minimal
+
+after_build:
+  - nuget pack MvcCustomErrors\MvcCustomErrors.csproj -version "%GitVersion_NuGetVersion%" -prop "target=%CONFIGURATION%" -symbols
+
+test: off
+
+artifacts:
+  - path: '*.nupkg'
+
+nuget:
+  account_feed: true
+  project_feed: true
+  disable_publish_on_pr: true
+
+deploy:
+  - provider: NuGet
+    api_key:
+      secure: qjlZn0/B+YjmKoxEEr6t9iMVbhGf+TkHxC/ujtR51SpTCsAbtXG8lqfhbEZ5kI1Q
+    skip_symbols: false
+    on:
+      APPVEYOR_REPO_TAG: true
+
+  - provider: GitHub
+    auth_token:
+      secure: HZ2mZjXK4MPwaQbKvv1HM3D1A7MPiXf24qPKpuK00Kz2U2Y3Wy5D1Ajo6mNFNioj
+    tag: '$(APPVEYOR_REPO_TAG_NAME)'
+    release: '$(GitVersion_NuGetVersion)'
+    description: ''
+    prerelease: '$(Build_IsPreRelease)'
+    on:
+      APPVEYOR_REPO_TAG: true
