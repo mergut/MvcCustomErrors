@@ -13,7 +13,6 @@ Licensed under the MIT License (MIT). See LICENSE in the project root for licens
     <projectUrl>https://github.com/mergut/MvcCustomErrors</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <copyright>$copyright$</copyright>
     <tags>Web MVC CustomErrors ErrorPage Error</tags>
     <dependencies>
       <dependency id="Microsoft.AspNet.Mvc" version="5.0.0" />
