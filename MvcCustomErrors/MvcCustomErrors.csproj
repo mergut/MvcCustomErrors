@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration.cs" />
     <Compile Include="ErrorControllerHelper.cs" />
     <Compile Include="ErrorViewResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
