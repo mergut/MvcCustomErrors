@@ -1,5 +1,5 @@
-﻿// Copyright (c) 2016 Mehmet Antoine Ergut
-// Licensed under the MIT License (MIT). See LICENSE in the project root for license information.
+﻿// Copyright (c) Mehmet Antoine Ergut
+// Licensed under the MIT License (MIT). See LICENSE file in the project root for full license information.
 
 namespace MvcCustomErrors
 {
@@ -10,21 +10,29 @@ namespace MvcCustomErrors
     using System.Web.Routing;
     using System.Web.UI;
 
+    /// <summary>
+    /// WebForm error page called from &gt;customErrors> section.
+    /// </summary>
+    /// <seealso cref="System.Web.UI.Page" />
     public class ErrorPage : Page
     {
+        /// <summary>
+        /// Processes the request.
+        /// </summary>
+        /// <param name="context">The context.</param>
         public override void ProcessRequest(HttpContext context)
         {
             HttpContextBase httpContext = new HttpContextWrapper(context);
             IControllerFactory factory = ControllerBuilder.Current.GetControllerFactory();
 
-            ProcessRequest(httpContext, factory);
+            this.ProcessRequest(httpContext, factory);
         }
 
         internal void ProcessRequest(HttpContextBase httpContext, IControllerFactory controllerFactory)
         {
             string controllerName = Configuration.ControllerName;
-            RequestContext requestContext = CreateRequestContext(httpContext, controllerName);
-            IController controller = CreateController(controllerFactory, requestContext, controllerName);
+            RequestContext requestContext = this.CreateRequestContext(httpContext, controllerName);
+            IController controller = this.CreateController(controllerFactory, requestContext, controllerName);
             if (controller == null)
             {
                 throw new InvalidOperationException(string.Format(CultureInfo.InvariantCulture, "Cannot find a controller with name '{0}'.", controllerName));
@@ -59,7 +67,7 @@ namespace MvcCustomErrors
 
         internal RequestContext CreateRequestContext(HttpContextBase httpContext, string controllerName)
         {
-            int statusCode = GetStatusCode(httpContext.Server.GetLastError());
+            int statusCode = this.GetStatusCode(httpContext.Server.GetLastError());
 
             RouteData routeData = new RouteData();
             routeData.DataTokens["statusCode"] = statusCode;

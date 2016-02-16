@@ -6,15 +6,13 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("MvcCustomErrors")]
-[assembly: AssemblyProduct("MvcCustomErrors")]
+[assembly: AssemblyTitle("MvcCustomErrors.Tests")]
+[assembly: AssemblyProduct("MvcCustomErrors.Tests")]
 [assembly: AssemblyCompany("Mehmet Antoine Ergut")]
 [assembly: AssemblyCopyright("Copyright © Mehmet Antoine Ergut")]
-[assembly: AssemblyDescription("Display custom error pages using MVC views.")]
 [assembly: ComVisible(false)]
-[assembly: Guid("fe44141e-8fda-4dbf-9024-ec23c13261e6")]
-[assembly: CLSCompliant(true)]
+[assembly: Guid("22876ff8-21e8-4420-ae0f-7530e992a559")]
 [assembly: InternalsVisibleTo("MvcCustomErrors.Tests")]
 [assembly: AssemblyVersion("1.0.0.*")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
-[assembly: AssemblyInformationalVersion("1.0.0-local")]
+[assembly: AssemblyInformationalVersion("1.0.0.0")]

@@ -15,6 +15,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{55A8CD
 		.nuget\packages.config = .nuget\packages.config
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcCustomErrors.Tests", "MvcCustomErrors.Tests\MvcCustomErrors.Tests.csproj", "{22876FF8-21E8-4420-AE0F-7530E992A559}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{FE44141E-8FDA-4DBF-9024-EC23C13261E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE44141E-8FDA-4DBF-9024-EC23C13261E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE44141E-8FDA-4DBF-9024-EC23C13261E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22876FF8-21E8-4420-AE0F-7530E992A559}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22876FF8-21E8-4420-AE0F-7530E992A559}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22876FF8-21E8-4420-AE0F-7530E992A559}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22876FF8-21E8-4420-AE0F-7530E992A559}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
