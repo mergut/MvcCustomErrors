@@ -1,22 +1,14 @@
 ﻿using System;
 using System.Web.Mvc;
+using MvcCustomErrors;
 
 namespace $rootnamespace$.Controllers
 {
     public class ErrorController : Controller
     {
-        public ActionResult InternalServerError()
+        protected override void HandleUnknownAction(string actionName)
         {
-            this.Response.StatusCode = 500;
-
-            return View();
-        }
-
-        public ActionResult NotFound()
-        {
-            this.Response.StatusCode = 404;
-
-            return View();
+            ErrorControllerHelper.HandleUnknownAction(this.ControllerContext, actionName);
         }
     }
 }

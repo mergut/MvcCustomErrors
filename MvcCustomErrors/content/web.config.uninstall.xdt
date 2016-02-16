@@ -8,19 +8,13 @@ Licensed under the MIT License (MIT). See LICENSE in the project root for licens
     <customErrors xdt:Transform="RemoveAttributes(mode,defaultRedirect,redirectMode,allowNestedErrors)" />
   </system.web>
   <system.webServer>
-    <httpErrors xdt:Transform="RemoveAttributes(errorMode,existingResponse)">
+    <httpErrors xdt:Transform="RemoveAttributes(errorMode)">
       <remove xdt:Transform="Remove"
               xdt:Locator="Match(statusCode)"
               statusCode="404" />
       <error xdt:Transform="Remove"
              xdt:Locator="Match(statusCode,path,responseMode)"
              statusCode="404" path="/Error/NotFound" responseMode="ExecuteURL" />
-      <remove xdt:Transform="Remove"
-              xdt:Locator="Match(statusCode)"
-              statusCode="500" />
-      <error xdt:Transform="Remove"
-             xdt:Locator="Match(statusCode,path,responseMode)"
-             statusCode="500" path="/Error/InternalServerError" responseMode="ExecuteURL" />
     </httpErrors>
   </system.webServer>
 </configuration>

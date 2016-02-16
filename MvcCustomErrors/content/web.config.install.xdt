@@ -13,19 +13,13 @@ Licensed under the MIT License (MIT). See LICENSE in the project root for licens
     </customErrors>
   </system.web>
   <system.webServer xdt:Transform="InsertIfMissing">
-    <httpErrors xdt:Transform="InsertIfMissing" errorMode="Custom" existingResponse="Replace">
+    <httpErrors xdt:Transform="InsertIfMissing" errorMode="Custom">
       <remove xdt:Transform="InsertIfMissing"
               xdt:Locator="Match(statusCode)"
               statusCode="404" />
       <error xdt:Transform="Replace"
              xdt:Locator="Match(statusCode)"
              statusCode="404" path="/Error/NotFound" responseMode="ExecuteURL" />
-      <remove xdt:Transform="InsertIfMissing"
-              xdt:Locator="Match(statusCode)"
-              statusCode="500" />
-      <error xdt:Transform="Replace"
-             xdt:Locator="Match(statusCode)"
-             statusCode="500" path="/Error/InternalServerError" responseMode="ExecuteURL" />
     </httpErrors>
   </system.webServer>
 </configuration>
