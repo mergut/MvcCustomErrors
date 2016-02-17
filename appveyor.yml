@@ -25,10 +25,12 @@ build:
 after_build:
   - nuget pack MvcCustomErrors\MvcCustomErrors.csproj -version "%GitVersion_NuGetVersion%" -prop "target=%CONFIGURATION%" -symbols
 
-test: off
+test_script:
+  - packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -output:coverage.xml "-target:C:\Tools\NUnit3\bin\nunit3-console.exe" "-targetargs:MvcCustomErrors.Tests\bin\%CONFIGURATION%\MvcCustomErrors.Tests.dll --result:myresults.xml;format=AppVeyor" -skipautoprops -hideskipped:All -filter:"+[*]* -[*Tests]*"
 
 artifacts:
   - path: '*.nupkg'
+  - path: coverage.xml
 
 nuget:
   account_feed: true
