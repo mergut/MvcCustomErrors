@@ -1,9 +1,11 @@
 # MvcCustomErrors
 
-[![NuGet Version](https://img.shields.io/nuget/v/MvcCustomErrors.svg)](https://www.nuget.org/packages/MvcCustomErrors)
+[![GitHub Version](https://badge.fury.io/gh/mergut%2FMvcCustomErrors.svg)](https://badge.fury.io/gh/mergut%2FMvcCustomErrors)
+[![NuGet Version](https://badge.fury.io/nu/MvcCustomErrors.svg)](https://badge.fury.io/nu/MvcCustomErrors)
 [![NuGet Downloads](https://img.shields.io/nuget/dt/MvcCustomErrors.svg)](https://www.nuget.org/packages/MvcCustomErrors)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/mergut/MvcCustomErrors/master/LICENSE)
-[![Build status](https://ci.appveyor.com/api/projects/status/0n4p2yapfmd7saf9/branch/master?svg=true)](https://ci.appveyor.com/project/mergut/mvccustomerrors/branch/master)
+[![Build Status](https://ci.appveyor.com/api/projects/status/0n4p2yapfmd7saf9/branch/master?svg=true)](https://ci.appveyor.com/project/mergut/mvccustomerrors/branch/master)
+[![Coverage Status](https://coveralls.io/repos/github/mergut/MvcCustomErrors/badge.svg?branch=master)](https://coveralls.io/github/mergut/MvcCustomErrors?branch=master)
 
 Display custom error pages using MVC views.
 
