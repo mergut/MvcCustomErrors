@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <!--
-Copyright (c) 2016 Mehmet Antoine Ergut
-Licensed under the MIT License (MIT). See LICENSE in the project root for license information.
+Copyright (c) Mehmet Antoine Ergut
+Licensed under the MIT License (MIT). See LICENSE file in the project root for full license information.
 -->
 <configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
   <system.web>
@@ -14,7 +14,7 @@ Licensed under the MIT License (MIT). See LICENSE in the project root for licens
               statusCode="404" />
       <error xdt:Transform="Remove"
              xdt:Locator="Match(statusCode,path,responseMode)"
-             statusCode="404" path="/Error/NotFound" responseMode="ExecuteURL" />
+             statusCode="404" path="/Error/Http404" responseMode="ExecuteURL" />
     </httpErrors>
   </system.webServer>
 </configuration>
