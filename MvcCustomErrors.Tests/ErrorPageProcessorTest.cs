@@ -10,8 +10,8 @@ namespace MvcCustomErrors.Tests
     using FakeSystemWeb;
     using Moq;
     using NUnit.Framework;
-    [TestFixture]
 
+    [TestFixture]
     public class ErrorPageProcessorTest
     {
         [Test]
