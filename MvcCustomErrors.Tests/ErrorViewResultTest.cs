@@ -4,6 +4,8 @@
 namespace MvcCustomErrors.Tests
 {
     using System;
+    using System.Web.Mvc;
+    using FakeSystemWeb;
     using NUnit.Framework;
 
     [TestFixture]
@@ -34,6 +36,41 @@ namespace MvcCustomErrors.Tests
 
             Assert.That(result, Is.True);
             Assert.That(statusCode, Is.EqualTo(code));
+        }
+
+        [Test]
+        public void ErrorViewResult_GetStatusCode_WithStatusCodeInRouteData_ReturnsCode()
+        {
+            var controllerContext = new ControllerContext();
+            controllerContext.RouteData.DataTokens["statusCode"] = 403;
+
+            int result = ErrorViewResult.GetStatusCode(controllerContext);
+
+            Assert.That(result, Is.EqualTo(403));
+        }
+
+        [Test]
+        public void ErrorViewResult_GetStatusCode_WithStatusCodeInUrl_ReturnsCode()
+        {
+            var controllerContext = new ControllerContext();
+            controllerContext.HttpContext = new FakeHttpContext(new Uri("http://localhost/test?405"));
+
+            int result = ErrorViewResult.GetStatusCode(controllerContext);
+
+            Assert.That(result, Is.EqualTo(405));
+        }
+
+        [Test]
+        public void ErrorViewResult_ExecuteResult_WithNullContextParameter_Throws()
+        {
+            var viewresult = new ErrorViewResult(null);
+
+            TestDelegate act = () =>
+            {
+                viewresult.ExecuteResult(null);
+            };
+
+            Assert.That(act, Throws.ArgumentNullException.With.Property("ParamName").EqualTo("context"));
         }
     }
 }

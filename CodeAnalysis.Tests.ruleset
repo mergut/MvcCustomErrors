@@ -1,9 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <RuleSet Name="Rules for MvcCustomErrors Tests" ToolsVersion="14.0">
-  <Include Path="CodeAnalysis.ruleset" Action="Default" />
+  <Include Path="codeanalysis.ruleset" Action="Default" />
   <Rules AnalyzerId="Microsoft.Analyzers.ManagedCodeAnalysis" RuleNamespace="Microsoft.Rules.Managed">
     <Rule Id="CA1014" Action="None" />
+    <Rule Id="CA1054" Action="None" />
     <Rule Id="CA1707" Action="None" />
+    <Rule Id="CA2201" Action="None" />
   </Rules>
   <Rules AnalyzerId="StyleCop.Analyzers" RuleNamespace="StyleCop.Analyzers">
     <Rule Id="SA1652" Action="None" />

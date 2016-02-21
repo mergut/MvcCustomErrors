@@ -4,7 +4,6 @@
 namespace MvcCustomErrors.Tests
 {
     using System;
-    using System.Diagnostics.CodeAnalysis;
     using System.Web;
     using System.Web.Mvc;
     using System.Web.Routing;
@@ -21,7 +20,6 @@ namespace MvcCustomErrors.Tests
         }
 
         [Test]
-        [SuppressMessage("Microsoft.Usage", "CA2201:DoNotRaiseReservedExceptionTypes", Justification = "Test code.")]
         public void ErrorPageProcessor_GetStatusCode_WithNonHttpExceptionParameter_Returns500()
         {
             this.GetStatusCodeTest(new Exception(), 500);
@@ -34,11 +32,10 @@ namespace MvcCustomErrors.Tests
         }
 
         [Test]
-        [SuppressMessage("Microsoft.Usage", "CA2201:DoNotRaiseReservedExceptionTypes", Justification = "Test code.")]
         public void ErrorPageProcessor_CreateController_WhenFactoryThrows_Throws()
         {
             var processor = new ErrorPageProcessor();
-            var exception = new Exception();
+            var exception = new HttpException(500, "Error");
             var mockControllerFactory = new Mock<IControllerFactory>();
             mockControllerFactory
                 .Setup(m => m.CreateController(It.IsAny<RequestContext>(), It.IsAny<string>()))
