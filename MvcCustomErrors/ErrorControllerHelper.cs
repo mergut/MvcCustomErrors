@@ -53,7 +53,7 @@ namespace MvcCustomErrors
             }
         }
 
-        internal static bool DisplayView(ControllerContext controllerContext, params string[] candidateViewNames)
+        private static bool DisplayView(ControllerContext controllerContext, params string[] candidateViewNames)
         {
             foreach (string viewName in candidateViewNames)
             {
@@ -77,7 +77,7 @@ namespace MvcCustomErrors
             return false;
         }
 
-        internal static void DisplayMissingViewError(HttpContextBase httpContext, params string[] candidateViewNames)
+        private static void DisplayMissingViewError(HttpContextBase httpContext, params string[] candidateViewNames)
         {
             HttpResponseBase httpResponse = httpContext.Response;
             httpResponse.ContentType = "text/html";

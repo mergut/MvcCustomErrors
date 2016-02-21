@@ -61,7 +61,7 @@ namespace MvcCustomErrors
         {
             statusCode = 0;
             string query = url.Query;
-            if (query != null && query.Length >= 4)
+            if (query.Length >= 4)
             {
                 return int.TryParse(query.Substring(1, 3), NumberStyles.Integer, CultureInfo.InvariantCulture, out statusCode);
             }

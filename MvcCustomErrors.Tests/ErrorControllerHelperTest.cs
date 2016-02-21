@@ -1,5 +1,6 @@
 ﻿// Copyright (c) Mehmet Antoine Ergut
 // Licensed under the MIT License (MIT). See LICENSE file in the project root for full license information.
+
 namespace MvcCustomErrors.Tests
 {
     using System;

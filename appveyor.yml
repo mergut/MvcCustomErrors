@@ -4,6 +4,10 @@ version: "{build}"
 
 os: Visual Studio 2015
 
+environment:
+  COVERALLS_REPO_TOKEN:
+    secure: Ib/oNeN51F9zKmZi4ou3HLWdnGd5IH8M+rNDbHfym9G4biY3Dy5xNdh6s6yQzuKs
+
 assembly_info:
   patch: false
 
@@ -27,6 +31,9 @@ after_build:
 
 test_script:
   - packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -output:coverage.xml "-target:C:\Tools\NUnit3\bin\nunit3-console.exe" "-targetargs:MvcCustomErrors.Tests\bin\%CONFIGURATION%\MvcCustomErrors.Tests.dll --result:myresults.xml;format=AppVeyor" -skipautoprops -hideskipped:All -filter:"+[*]* -[*Tests]*"
+
+after_test:
+  - packages\coveralls.io.1.3.4\tools\coveralls.net.exe --opencover coverage.xml
 
 artifacts:
   - path: '*.nupkg'

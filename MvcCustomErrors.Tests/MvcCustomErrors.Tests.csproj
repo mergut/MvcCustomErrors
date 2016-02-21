@@ -84,6 +84,8 @@
   <ItemGroup>
     <Compile Include="ConfigurationTest.cs" />
     <Compile Include="ErrorControllerHelperTest.cs" />
+    <Compile Include="ErrorPageProcessorTest.cs" />
+    <Compile Include="ErrorViewResultTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
