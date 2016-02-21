@@ -7,7 +7,8 @@
 
 Display custom error pages using MVC views.
 
-MvcCustomErrors unifies error page handling and centralizes the status code to displayed page mapping inside the IIS `<httpErrors>` section.
+MvcCustomErrors allows displaying error pages with MVC views using existing MVC layouts without having to duplicate layout and styling into `.aspx` or `.html` files.
+Mapping IIS errors from `<httpErrors>` section is also supported.
 
 
 ## Installation
@@ -16,23 +17,14 @@ MvcCustomErrors is available as a NuGet package. You can install it using the Nu
 PM> Install-Package MvcCustomErrors
 ```
 
-## Customization
+*The default globally registered `HandleErrorAttribute` should be removed unless you want to apply a diffrent display to errors occuring inside a controller action.*
 
-This package provides views for InternalServerError (500) and NotFound (404) status codes.
+## Usage
+Out of the box 404, 500 and fallback views are provided.
 
-You can easily add other views for specific status codes.
+Adding pages for other error numbers is as simple as creating a new view file in `~/Views/Error/` folder in the form of `Http###` where `###` is the HTTP code.
 
-Add a new method inside `ErrorController`:
-```csharp
-public ActionResult Forbidden()
-{
-    this.Response.StatusCode = 403;
-    
-    return View();
-}
-```
-
-Add a new view `~/Views/Error/Forbidden.cshtml`:
+Example; for a 403 error, add a new view `~/Views/Error/Http403.cshtml`:
 ```html
 @{
     ViewBag.Title = "Forbidden";
@@ -41,19 +33,21 @@ Add a new view `~/Views/Error/Forbidden.cshtml`:
 <p>You do not have permission to view this resource using the credentials that you supplied.</p>
 ```
 
-Add mapping inside `web.config`:
-```xml
-<system.webServer>
-  <httpErrors errorMode="Custom" existingResponse="Replace">
-    <remove statusCode="403" />
-    <error statusCode="403" path="/Error/Forbidden" responseMode="ExecuteURL" />
-  </httpErrors>
-</system.webServer>
+
+## Customization
+
+In order to customize the controller action executing when an error occurs, create an action method in `ErrorController` matching the view name.
+
+Example; to customize the 500 error, create a new method in `ErrorController`:
+```csharp
+public ActionResult Http500()
+{
+    this.Response.Clear();
+    this.Response.StatusCode = 500;
+    this.Response.TrySkipIisCustomErrors = true;
+    
+    // Custom processing, view model, ...
+
+    return View();
+}
 ```
-
-
-## Implementation
-
-A generic error page (Error.aspx) executes when an exception occurs inside the application.
-This page only sets the status code according to the occurred exception and suppresses any output.
-Then IIS `httpErrors` section takes over and displays the page corresponding to the status code.
