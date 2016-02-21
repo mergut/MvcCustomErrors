@@ -11,6 +11,7 @@ namespace MvcCustomErrors.Tests
     using Moq;
     using NUnit.Framework;
     [TestFixture]
+
     public class ErrorPageProcessorTest
     {
         [Test]
