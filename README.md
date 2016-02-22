@@ -1,7 +1,6 @@
 # MvcCustomErrors
 
-[![GitHub Version](https://badge.fury.io/gh/mergut%2FMvcCustomErrors.svg)](https://badge.fury.io/gh/mergut%2FMvcCustomErrors)
-[![NuGet Version](https://badge.fury.io/nu/MvcCustomErrors.svg)](https://badge.fury.io/nu/MvcCustomErrors)
+[![NuGet Version](https://badge.fury.io/nu/MvcCustomErrors.svg)](https://www.nuget.org/packages/MvcCustomErrors)
 [![NuGet Downloads](https://img.shields.io/nuget/dt/MvcCustomErrors.svg)](https://www.nuget.org/packages/MvcCustomErrors)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/mergut/MvcCustomErrors/master/LICENSE)
 [![Build Status](https://ci.appveyor.com/api/projects/status/0n4p2yapfmd7saf9/branch/master?svg=true)](https://ci.appveyor.com/project/mergut/mvccustomerrors/branch/master)
